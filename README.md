@@ -63,3 +63,6 @@ export default {
 ```
 # Result:
 ![image](https://raw.githubusercontent.com/BlackMix/vue-forms/master/result.jpg)
+
+# Credits:
+*Genesis* ![Link](https://github.com/phpzm/genesis)
