@@ -31,6 +31,11 @@ export const fields = (scope) => {
   )
 }
 
+export const select = [
+  {label: 'test 1', value: 'test1'},
+  {label: 'test 2', value: 'test2'}
+]
+
 export default {
   name: 'app',
   components: { AppForm },
@@ -65,4 +70,4 @@ export default {
 ![image](https://raw.githubusercontent.com/BlackMix/vue-forms/master/result.jpg)
 
 # Credits:
-*Genesis* ![Link](https://github.com/phpzm/genesis)
+*Genesis* [Link](https://github.com/phpzm/genesis)
