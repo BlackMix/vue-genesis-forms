@@ -1,20 +1,25 @@
 {
-  "name": "vue-forms",
-  "version": "0.0.2",
+  "name": "mix-vue-forms",
+  "version": "0.0.3",
   "description": "vue forms create",
   "main": "index.js",
+  "readmeFilename": "README.md" ,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackMix/vue-forms.git"
+    "url": "git+https://github.com/BlackMix/mix-vue-forms.git"
   },
   "keywords": [
     "vue",
     "forms"
   ],
-  "author": "BlackMix",
+  "author": {
+    "name": "BlackMix",
+    "email": "mixchatmix3@gmail.com",
+    "homepage": "https://github.com/BlackMix"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BlackMix/vue-forms/issues"
