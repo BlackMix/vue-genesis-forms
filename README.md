@@ -62,4 +62,4 @@ export default {
 </script>
 ```
 # Result:
-![alt text](https://raw.githubusercontent.com/BlackMix/vue-forms/result.png)
+![image](https://raw.githubusercontent.com/BlackMix/vue-forms/master/result.jpg)
