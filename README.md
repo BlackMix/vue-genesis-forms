@@ -1,9 +1,9 @@
-# mix-vue-forms
+# 📚 mix-vue-forms
 
-` support working: `
+` 🔥 support working: `
 * input, textarea, switch, select
 
-` next `
+` 🎨 next `
 * mult select, toggle, colorpick, datepicker, radio
 
 `example usage:`
