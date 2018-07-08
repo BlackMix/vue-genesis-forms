@@ -58,7 +58,7 @@ export default {
     return fieldRender(h, el,
       h('div', { slot: 'component', class: { 'control': true, 'is-expanded': el.expanded, 'has-icons-left': el.icon } }, [
         h('span', { class: [ 'select', el.divClasses ]}, [
-          h('select', { domprops: el.model, ref: 'select', props: { size: el.nativeSize, disable: el.disable, multiple: el.multiple },
+          h('select', { domProps: { value: el.model }, ref: 'select', props: { size: el.nativeSize, disable: el.disable, multiple: el.multiple },
             on: { change: (event) => el.$emit('input', event.target.value) } }, [
               el.placeholder ?
                 h('option', { attrs: { value: null, selected: true, disabled: true, hidden: true } }, el.placeholder)
