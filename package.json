@@ -27,6 +27,7 @@
   "homepage": "https://github.com/BlackMix/vue-forms#readme",
   "dependencies": {
     "moment": "^2.22.2",
+    "buefy":"^0.6.6",
     "vue": "^2.5.16"
   }
 }
