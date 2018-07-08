@@ -3,7 +3,7 @@
     <div slot="component">
       <div v-show="editable" :class="{'has-error': problems.length}">
         <div class="control is-clearfix">
-          <input ref="input" class="input" autocomplete="off"
+          <input ref="input" class="input"
           v-bind="{id, type, name, placeholder, maxlength, disabled}"
           @keypress="keypress" @keyup="keyup" @blur="blur" @focus="focus" @keydown.enter.stop.prevent="enter"
           @input="updateValue($event.target.value)"/>
