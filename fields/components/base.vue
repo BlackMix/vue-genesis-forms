@@ -42,7 +42,7 @@ export default {
             !el.inline ?
               h('label', { class: { 'label-with-error': el.problems.length } }, [
                 h('span', {}, el.label),
-                el.validate ?
+                el.validate && el.validate.required ?
                   h('span', { attrs: { title: el.title } }, '*')
                 : null
               ])

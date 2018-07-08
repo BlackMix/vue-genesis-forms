@@ -13,6 +13,10 @@ export default {
       type: String,
       default: 'text'
     },
+    input: {
+      type: String,
+      default: 'input'
+    },
     field: {
       type: String,
       default: 'text'
@@ -26,7 +30,10 @@ export default {
       default: ''
     },
     width: {
-      default: '100'
+      default: '12'
+    },
+    minHeight: {
+      default: null
     },
     validate: {
       default: undefined

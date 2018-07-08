@@ -116,7 +116,8 @@ export default (field, label, component = 'text', scopes = []) => {
       return this
     },
     $input () {
-      this.form.component = 'field-input'
+      this.form.component = 'field-text'
+      this.form.input = 'input'
       return this
     },
     $money () {
@@ -130,6 +131,7 @@ export default (field, label, component = 'text', scopes = []) => {
     },
     $password () {
       this.form.component = 'field-text'
+      this.form.input = 'input'
       this.form.type = 'password'
       return this
     },
@@ -177,10 +179,15 @@ export default (field, label, component = 'text', scopes = []) => {
     },
     $text () {
       this.form.component = 'field-text'
+      this.form.input = 'input'
       return this
     },
-    $textarea () {
-      this.form.component = 'textarea'
+    $textarea (options = null, value) {
+      if (options) {
+        this.form[options] = value
+      }
+      this.form.component = 'field-text'
+      this.form.input = 'textarea'
       return this
     },
     $time () {
