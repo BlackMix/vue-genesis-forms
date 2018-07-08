@@ -21,7 +21,7 @@ export default {
         el.editable ?
         h('div', { class: { 'has-error': el.problems.length } }, [
           h('div', { class: 'control is-clearfix' }, [
-            h(el.input, { class: 'input', ref: 'input', props: {
+            h(el.input, { class: 'input', ref: 'inputText', props: {
                 id: Number,
                 type: String,
                 name: String,
@@ -57,19 +57,15 @@ export default {
   },
   methods: {
     applyValue (value) {
-      if (value === undefined) {
-        return
-      }
-      if (value === null) {
+      if ([undefined, null, ''].includes(value)) {
         return
       }
       if (this.mask) {
         this.maxlength = this.mask.length
         value = mask(this.mask, String(value))
       }
-      this.html = value
-      if (this.$refs.input) {
-        this.$refs.input.value = value
+      if (this.$refs.inputText) {
+        this.$refs.inputText.value = value
       }
     }
   },
