@@ -2,6 +2,7 @@
 import Field from './base.vue'
 import FieldAbstract from '../abstract'
 import { mask } from '../../format'
+import { fieldRender } from '../render-field'
 
 export default {
   extends: FieldAbstract,
@@ -14,17 +15,7 @@ export default {
     maxlength: ''
   }),
   render (h, el = this) {
-    return h('field', { class: el.classNames, props: {
-      id: el.id, 
-      inline: el.inline, 
-      problems: el.problems,
-      label: el.label, 
-      validate: el.validate,
-      title: el.title,
-      tooltip: el.tooltip,
-      editable: el.editable,
-      visible: el.visible
-    } }, [
+    return fieldRender(h, el,
       h('div', { slot: 'component' }, [
         el.editable ?
         h('div', { class: { 'has-error': el.problems.length } }, [
@@ -47,7 +38,7 @@ export default {
         : null,
         h('div', { class: 'input-bar' })
       ])
-    ])
+    )
   },
   methods: {
     applyValue (value) {

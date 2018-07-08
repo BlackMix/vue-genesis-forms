@@ -1,6 +1,8 @@
 <script>
 import Field from './base.vue'
 import FieldAbstract from '../abstract'
+import { fieldRender } from '../render-field'
+
 export default {
   extends: FieldAbstract,
   components: {
@@ -53,29 +55,16 @@ export default {
     model: null
   }),
   render (h, el = this) {
-    return h('field', { 
-        class: el.classNames, props: {
-        id: el.id, 
-        inline: el.inline, 
-        problems: el.problems,
-        label: el.label, 
-        validate: el.validate,
-        title: el.title,
-        tooltip: el.tooltip,
-        editable: el.editable,
-        visible: el.visible
-      } 
-    },
-    [
+    return fieldRender(h, el,
       h('div', { slot: 'component', class: { 'control': true, 'is-expanded': el.expanded, 'has-icons-left': el.icon } }, [
         h('span', { class: [ 'select', el.divClasses ]}, [
           h('select', { domprops: el.model, ref: 'select', props: { size: el.nativeSize, disable: el.disable, multiple: el.multiple },
             on: { change: (event) => el.$emit('input', event.target.value) } }, [
               el.placeholder ?
-                h('option', { attrs: { value: null, selected: true, disabled: true, hidden: true }}, el.placeholder)
+                h('option', { attrs: { value: null, selected: true, disabled: true, hidden: true } }, el.placeholder)
               : null,
               el.options ?
-                el.options.map(option => h('option', { attrs: { value: option.value }}, option.label))
+                el.options.map(option => h('option', { attrs: { value: option.value } }, option.label))
               : null
             ])
         ]),
@@ -83,7 +72,7 @@ export default {
           h('b-icon', { class: 'is-left', props: { icon: el.icon } })
         : null
       ])
-    ])
+    )
   },
   computed: {
     divClasses () {

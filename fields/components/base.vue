@@ -1,26 +1,3 @@
-<template>
-  <div class="field" v-show="visible">
-    <slot name="label">
-      <div v-if="label" class="label">
-        <label v-if="!inline" :class="{'label-with-error': problems.length}">
-          {{ label }} <span v-if="!!validate" :title="title">*</span>
-          <mix-tooltip v-if="tooltip">
-            <span v-html="tooltip"></span>
-          </mix-tooltip>
-        </label>
-      </div>
-    </slot>
-    <slot name="component"></slot>
-    <slot name="error">
-      <div v-if="label" class="field-base-error">
-        <div v-if="showError" class="text-right error-message">
-          <span v-for="problem in problems" :key="problem.path">{{ $t(problem.path, problem.parameters) }}</span>
-        </div>
-      </div>
-    </slot>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'field-base',
@@ -56,6 +33,37 @@ export default {
     tooltip: {
       type: String
     }
+  },
+  render (h, el = this) {
+    return h('div', { class: 'field', style: { 'display: none': el.visible } }, [
+      [el.$slots.label, [
+        el.label ?
+          h('div', { class: 'label' }, [
+            !el.inline ?
+              h('label', { class: { 'label-with-error': el.problems.length } }, [
+                h('span', {}, el.label),
+                el.validate ?
+                  h('span', { attrs: { title: el.title } }, '*')
+                : null
+              ])
+            : null
+          ])
+        : null
+      ]],
+      [el.$slots.component],
+      [el.$slots.error, [
+        el.label ?
+        h('div', { class: 'field-base-error' }, [
+          el.showError ?
+            h('div', { class: 'text-right error-message' }, el.problems.map(
+                problem => h('span', {}, el.$t(problem.path, problem.parameters))
+              )
+            )
+          : null
+        ])
+        : null
+      ]]
+    ])
   },
   computed: {
     showError () {
