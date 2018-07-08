@@ -4,7 +4,7 @@
 * input, textarea, switch, select
 
 ` next `
-* mult select, toggle, colorpick, datapick, radio
+* mult select, toggle, colorpick, datepicker, radio
 
 `example usage:`
 App.vue
