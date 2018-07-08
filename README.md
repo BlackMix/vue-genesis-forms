@@ -1,4 +1,4 @@
-# vue-forms
+# mix-vue-forms
 
 example.
 
@@ -13,7 +13,7 @@ App.vue
 </template>
 
 <script>
-import { AppForm, filter, field } from 'vue-forms'
+import { AppForm, filter, field } from 'mix-vue-forms'
 
 export const fields = (scope) => {
   return filter(

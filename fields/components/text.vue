@@ -1,19 +1,3 @@
-<template>
-  <field :class="classNames" v-bind="{id, inline, problems, label, validate, title, tooltip, editable, visible}">
-    <div slot="component">
-      <div v-show="editable" :class="{'has-error': problems.length}">
-        <div class="control is-clearfix">
-          <input ref="input" class="input"
-          v-bind="{id, type, name, placeholder, maxlength, disabled}"
-          @keypress="keypress" @keyup="keyup" @blur="blur" @focus="focus" @keydown.enter.stop.prevent="enter"
-          @input="updateValue($event.target.value)"/>
-        </div>
-        <div class="input-bar"></div>
-      </div>
-    </div>
-  </field>
-</template>
-
 <script>
 import Field from './base.vue'
 import FieldAbstract from '../abstract'
@@ -29,6 +13,42 @@ export default {
     html: '',
     maxlength: ''
   }),
+  render (h, el = this) {
+    return h('field', { class: el.classNames, props: {
+      id: el.id, 
+      inline: el.inline, 
+      problems: el.problems,
+      label: el.label, 
+      validate: el.validate,
+      title: el.title,
+      tooltip: el.tooltip,
+      editable: el.editable,
+      visible: el.visible
+    } }, [
+      h('div', { slot: 'component' }, [
+        el.editable ?
+        h('div', { class: { 'has-error': el.problems.length } }, [
+          h('div', { class: 'control is-clearfix' }, [
+            h('input', { ref: 'input', class: 'input', props: {
+                id: Number,
+                type: String,
+                name: String,
+                placeholder: String,
+                maxlength: Number,
+                disabled: Boolean
+              },
+              on: {
+                keypress: el.keypress, keyup: el.keyup, blur: el.blur, focus: el.focus, 'keydown.enter.stop.prevent': el.enter,
+                input: (event) => el.updateValue(event.target.value)
+              }
+            })
+          ])
+        ])
+        : null,
+        h('div', { class: 'input-bar' })
+      ])
+    ])
+  },
   methods: {
     applyValue (value) {
       if (value === undefined) {

@@ -1,39 +1,3 @@
-<template>
-  <field :class="classNames" v-bind="{id, inline, problems, label, validate, title, tooltip, editable, visible}">
-    <div slot="component" class="control" :class="{ 'is-expanded': expanded, 'has-icons-left': icon }">
-      <span class="select" :class="divClasses">
-        <select 
-          v-model="model"
-          ref="select"
-          :size="nativeSize"
-          v-bind="{disable, multiple}"
-          @change="$emit('input', model)"
-          >
-          <option
-            v-if="placeholder"
-            :value="null"
-            selected
-            disabled
-            hidden
-            >
-            {{ placeholder }}
-          </option>
-         
-          <option v-if="options" v-for="option in options" :key="option" :value="option.value">{{option.label}}</option>
-          
-        </select>
-          <b-icon
-            v-if="icon"
-            class="is-left"
-            :icon="icon"
-          />
-
-      </span>
-
-    </div>
-  </field>
-</template>
-
 <script>
 import Field from './base.vue'
 import FieldAbstract from '../abstract'
@@ -88,6 +52,39 @@ export default {
   data: () => ({
     model: null
   }),
+  render (h, el = this) {
+    return h('field', { 
+        class: el.classNames, props: {
+        id: el.id, 
+        inline: el.inline, 
+        problems: el.problems,
+        label: el.label, 
+        validate: el.validate,
+        title: el.title,
+        tooltip: el.tooltip,
+        editable: el.editable,
+        visible: el.visible
+      } 
+    },
+    [
+      h('div', { slot: 'component', class: { 'control': true, 'is-expanded': el.expanded, 'has-icons-left': el.icon } }, [
+        h('span', { class: [ 'select', el.divClasses ]}, [
+          h('select', { domprops: el.model, ref: 'select', props: { size: el.nativeSize, disable: el.disable, multiple: el.multiple },
+            on: { change: (event) => el.$emit('input', event.target.value) } }, [
+              el.placeholder ?
+                h('option', { attrs: { value: null, selected: true, disabled: true, hidden: true }}, el.placeholder)
+              : null,
+              el.options ?
+                el.options.map(option => h('option', { attrs: { value: option.value }}, option.label))
+              : null
+            ])
+        ]),
+        el.icon ?
+          h('b-icon', { class: 'is-left', props: { icon: el.icon } })
+        : null
+      ])
+    ])
+  },
   computed: {
     divClasses () {
       return [this.size, {
