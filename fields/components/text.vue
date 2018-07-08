@@ -30,7 +30,8 @@ export default {
                 disabled: Boolean
               },
               attrs: {
-                maxlength: el.max
+                maxlength: el.max,
+                type: el.type
               },
               style: { 'min-height': el.minHeight },
               on: {
