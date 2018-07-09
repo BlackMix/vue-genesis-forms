@@ -1,4 +1,4 @@
-# 📚 mix-vue-forms
+# 📚 vue-genesis-forms
 
 ` 🔥 support working: `
 * input, textarea, switch, select, colorpick
