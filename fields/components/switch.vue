@@ -77,6 +77,9 @@ export default {
   watch: {
     value (value) {
       this.applyValue(value)
+    },
+    model (value) {
+      this.applyValue(value)
     }
   },
   mounted () {
