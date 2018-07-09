@@ -92,8 +92,11 @@ export default (field, label, component = 'text', scopes = []) => {
       // this.grid.format = formatBoolean
       return this
     },
-    $color () {
-      this.form.component = 'color'
+    $color (options = null) {
+      this.form.component = 'field-color'
+      if (options) {
+        this.form.colorType = options
+      }
       return this
     },
     $date () {

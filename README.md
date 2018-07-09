@@ -1,10 +1,10 @@
 # 📚 mix-vue-forms
 
 ` 🔥 support working: `
-* input, textarea, switch, select
+* input, textarea, switch, select, colorpick
 
 ` 🎨 next `
-* mult select, toggle, colorpick, datepicker, radio
+* mult select, toggle, datepicker, radio
 
 `example usage:`
 App.vue
