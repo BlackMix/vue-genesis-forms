@@ -17,7 +17,7 @@ App.vue
 </template>
 
 <script>
-import { AppForm, filter, field } from 'mix-vue-forms'
+import { AppForm, filter, field } from 'vue-genesis-forms'
 
 export const fields = (scope) => {
   return filter(

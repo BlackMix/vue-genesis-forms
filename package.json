@@ -1,7 +1,7 @@
 {
-  "name": "mix-vue-forms",
-  "version": "0.0.9",
-  "description": "vue forms create",
+  "name": "vue-genesis-forms",
+  "version": "0.0.10",
+  "description": "vue forms easy create",
   "main": "index.js",
   "readmeFilename": "README.md" ,
   "scripts": {
@@ -9,11 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackMix/mix-vue-forms.git"
+    "url": "git+https://github.com/BlackMix/vue-genesis-forms.git"
   },
   "keywords": [
     "vue",
-    "forms"
+    "forms",
+    "genesis"
   ],
   "author": {
     "name": "BlackMix",
@@ -22,9 +23,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BlackMix/vue-forms/issues"
+    "url": "https://github.com/BlackMix/vue-genesis-forms/issues"
   },
-  "homepage": "https://github.com/BlackMix/vue-forms#readme",
+  "homepage": "https://github.com/BlackMix/vue-genesis-forms#readme",
   "dependencies": {
     "tinycolor2":"^1.4.1",
     "lodash.throttle":"^4.1.1",
