@@ -1,9 +1,9 @@
 <template>
 <field :class="classNames" v-bind="{id, inline, problems, label, validate, title, tooltip, editable, visible}">
-  <div slot="component" class="control" :class="{ 'is-expanded': expanded, 'has-icons-left': icon }">
+  <div slot="component" class="control">
     <label
         class="switch"
-        :class="[size, { 'is-disabled': disabled }]"
+        :class="[this.size, { 'is-disabled': this.disabled }]"
         ref="label"
         :disabled="disabled"
         :tabindex="disabled ? false : 0"
@@ -13,7 +13,7 @@
         @mouseout="isMouseDown = false"
         @blur="isMouseDown = false">
         <input
-            v-model="value"
+            v-model="model"
             type="checkbox"
             @click.stop
             :disabled="disabled"
@@ -60,17 +60,17 @@ export default {
     }
   },
   data: () => ({
-    value: null,
+    model: null,
     isMouseDown: false
   }),
   methods: {
     applyValue (value) {
-      this.value = value
+      this.model = value
       this.$emit('input', value)
       return
     },
     clearValue () {
-      this.value = this.cleaning
+      this.model = this.cleaning
       this.updateValue(this.value)
     }
   },
