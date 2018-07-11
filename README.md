@@ -6,6 +6,9 @@
 ` 🎨 next `
 * mult select, toggle, datepicker, radio
 
+# simple Demo
+[Link](https://codesandbox.io/s/j1z40p4k7w)
+
 `example usage:`
 App.vue
 
