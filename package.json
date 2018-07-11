@@ -27,10 +27,13 @@
   },
   "homepage": "https://github.com/BlackMix/vue-genesis-forms#readme",
   "dependencies": {
+    "bulma": "^0.7.1",
+    "buefy": "^0.6.6",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "tinycolor2":"^1.4.1",
     "lodash.throttle":"^4.1.1",
     "moment": "^2.22.2",
-    "buefy":"^0.6.6",
     "vue": "^2.5.16"
   }
 }
