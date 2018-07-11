@@ -22,16 +22,17 @@ import { AppForm, filter, field } from 'vue-genesis-forms'
 export const fields = (scope) => {
   return filter(
     [
-      field('name', 'Nome').$text().$scopes(['settings']).$form({width: 12}).$validate('required').$render(),
+      field('name', 'Name').$text().$scopes(['settings']).$form({width: 12}).$validate('required').$render(),
       field('email', 'E-mail').$text().$scopes(['settings']).$form({width: 6})
         .$validate('email', true).$required().$render(),
-      field('color', 'Cor do Nick').$color('rgba').$scopes(['settings']).$form({width: 6}).$render(),
-      field('about', 'Sobre você').$textarea('max', 20).$scopes(['settings']).$form({width: 12, minHeight: '100px'})
+      field('color', 'Color Nick').$color('rgba').$scopes(['settings']).$form({width: 3}).$render(),
+      field('date', 'Date').$date().$scopes(['settings']).$form({width: 3}).$render(),
+      field('about', 'About you').$textarea('max', 200).$scopes(['settings']).$form({width: 12, minHeight: '100px'})
         .$validate('maxLength', 20).$render(),
-      field('coisas', 'Coisas').$select(select, false).$scopes(['settings']).$form({width: 3}).$render(),
-      field('notifications', 'Ativar Mensagens').$switch(1, 0).$scopes(['settings']).$form({width: 3}).$render(),
-      field('logs', 'Ativar Logs').$switch(1, 0).$scopes(['settings']).$form({width: 3}).$render(),
-      field('sockets', 'Ativar Sockets').$switch(1, 0).$scopes(['settings']).$form({width: 3}).$render()
+      field('things', 'Things').$select(select, false).$scopes(['settings']).$form({width: 3}).$render(),
+      field('notifications', 'Active Messages').$switch(1, 0).$scopes(['settings']).$form({width: 3}).$render(),
+      field('logs', 'Active Logs').$switch(1, 0).$scopes(['settings']).$form({width: 3}).$render(),
+      field('sockets', 'Active Sockets').$switch(1, 0).$scopes(['settings']).$form({width: 3}).$render()
     ],
     scope
   )
@@ -62,11 +63,13 @@ export default {
   },
   mounted () {
     this.data = {
-      name: 'Test quem é melhor Vue ou React',
+      name: 'Vue.js',
       email: 'test@test.com',
-      coisas: 'test2',
+      things: 'test2',
+      about: 'I love Vue.js <3',
       notifications: 1,
-      sockets: 1
+      sockets: 0,
+      logs: 0
     }
   }
 }
