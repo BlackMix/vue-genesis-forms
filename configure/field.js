@@ -183,6 +183,7 @@ export default (field, label, component = 'text', scopes = []) => {
     $text () {
       this.form.component = 'field-text'
       this.form.input = 'input'
+      this.form.type = 'text'
       return this
     },
     $textarea (options = null, value) {

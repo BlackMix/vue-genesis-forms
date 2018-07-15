@@ -1,6 +1,6 @@
 {
   "name": "vue-genesis-forms",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "vue easy create forms",
   "main": "index.js",
   "readmeFilename": "README.md" ,

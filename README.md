@@ -1,10 +1,10 @@
 # 📚 vue-genesis-forms
 
 ` 🔥 support working: `
-* input, textarea, switch, select, colorpick
+* input, textarea, switch, select, colorpick, datepicker
 
 ` 🎨 next `
-* mult select, toggle, datepicker, radio
+* mult select, toggle, radio
 
 # simple Demo
 [Link](https://codesandbox.io/s/j1z40p4k7w)

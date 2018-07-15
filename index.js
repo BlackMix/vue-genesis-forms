@@ -1,11 +1,12 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
+import Buefy from 'buefy/src'
+
+Vue.component(Buefy.Datepicker.name, Buefy.Datepicker)
+
 import fields from './configure/field'
 import * as FieldsComponents from './fields'
 
 const components = Object.assign({}, FieldsComponents)
-
-Vue.component(Buefy.Datepicker.name, Buefy.Datepicker)
 
 Object.keys(components).forEach(key => {
   Vue.component(key, components[key])

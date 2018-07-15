@@ -11,7 +11,7 @@ export default {
   },
   name: 'field-text',
   data: () => ({
-    html: '',
+    model: '',
     maxlength: '',
     isFocused: false
   }),
@@ -21,11 +21,13 @@ export default {
         el.editable ?
         h('div', { class: { 'has-error': el.problems.length } }, [
           h('div', { class: 'control is-clearfix' }, [
-            h(el.input, { class: 'input', ref: 'inputText', props: {
+            h(el.input, { class: 'input', ref: 'inputText',
+              props: {
                 id: Number,
-                type: String,
+                type: el.type,
                 name: String,
-                placeholder: String,
+                placeholder: el.placeholder,
+                value: el.value,
                 maxlength: Number,
                 disabled: Boolean
               },

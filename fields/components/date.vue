@@ -6,7 +6,9 @@
         :placeholder="placeholder"
         :min-date="minDate"
         :max-date="maxDate"
+        :date-formatter="dateFormat"
         :size="size"
+        @input="applyValue"
         >
     </b-datepicker>
   </div>
@@ -28,9 +30,9 @@ export default {
       type: String,
       default: "is-primary"
     },
-    date: {
+    format: {
       type: String,
-      default: () => new Date("dd-mm-yyyy").toDateString()
+      default: 'pt-BR'
     },
     disabled: {
       type: Boolean,
@@ -54,26 +56,22 @@ export default {
     isMouseDown: false
   }),
   methods: {
-    applyValue(value) {
-      this.model = value;
-      this.$emit("input", value);
-      return;
+    applyValue (value) {
+      this.$emit("input", value)
+      return
     },
-    clearValue() {
-      this.model = this.cleaning;
-      this.updateValue(this.value);
-    }
-  },
-  watch: {
-    value(value) {
-      this.applyValue(value);
+    dateFormat (date) {
+      let formated = date.toLocaleDateString(this.format)
+      this.applyValue(formated)
+      return formated
     },
-    model(value) {
-      this.applyValue(value);
+    clearValue () {
+      this.model = this.cleaning
+      this.updateValue(this.value)
     }
   },
   mounted() {
-    this.applyValue(this.value);
+    this.applyValue(this.value)
   }
 };
 </script>
