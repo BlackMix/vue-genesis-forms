@@ -1,4 +1,4 @@
-# 📚 vue-genesis-forms
+# 📚 vue-genesis-forms ![](https://scrutinizer-ci.com/g/BlackMix/vue-genesis-forms/badges/build.png?b=master) ![](https://img.shields.io/npm/dm/vue-genesis-forms.svg)
 
 ` 🔥 support working: `
 * input, textarea, switch, select, colorpick, datepicker
