@@ -8,6 +8,7 @@
         :max-date="maxDate"
         :date-formatter="dateFormat"
         :size="size"
+        color="is-white"
         @input="applyValue"
         >
     </b-datepicker>
