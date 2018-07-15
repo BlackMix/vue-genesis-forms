@@ -99,7 +99,10 @@ export default (field, label, component = 'text', scopes = []) => {
       }
       return this
     },
-    $date () {
+    $date (format = null) {
+      if (format) {
+        this.form.format = format
+      }
       this.form.component = 'field-date'
       // this.grid.format = formatDate
       return this
