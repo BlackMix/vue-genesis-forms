@@ -93,6 +93,9 @@ export default {
   margin-bottom: 0.875rem;
   border-bottom: 1px solid #666;
 }
+.datepicker .datepicker-header a {
+  color: #000;
+}
 .datepicker .datepicker-footer {
   padding-top: 0.875rem;
   border-top: 1px solid #666;

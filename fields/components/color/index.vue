@@ -32,7 +32,7 @@ export default {
           }
         }),
         el.show ?
-        h('color', { class: 'color-select', props: { value: el.hex }, on: {
+        h('color', { class: 'color-select', ref: 'ColorSelect', props: { value: el.hex }, on: {
             input: (colors) => el.updateValue(el.colorTransform(colors))
           }
         })
@@ -47,11 +47,16 @@ export default {
         case 'hex': return color.hex
         case 'hsl': return 'hsl(' + color.hsl.h + ',' + color.hsl.s + ',' + color.hsl.l + ')'
       }
-      
     },
     updateValue (color) {
       this.hex = color
       this.$emit('input', color)
+    },
+    outside (event) {
+      const out = event.target.className
+      if (out !== 'color' && !out.split('vc-')[1]) {
+        this.show = false
+      }
     }
   },
   watch: {
@@ -62,6 +67,14 @@ export default {
   created () {
     this.hex = this.color
     this.updateValue(this.color)
+    if (typeof window !== 'undefined') {
+      document.addEventListener('click', this.outside)
+    }
+  },
+  beforeDestroy () {
+    if (typeof window !== 'undefined') {
+      document.removeEventListener('click', this.outside)
+    }
   }
 }
 </script>
