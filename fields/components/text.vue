@@ -31,10 +31,11 @@ export default {
                 maxlength: Number,
                 disabled: Boolean
               },
-              domProps: { value: el.data },
+              domProps: { data: el.data },
               attrs: {
                 maxlength: el.max,
-                type: el.type
+                type: el.type,
+                value: el.data
               },
               style: { 'min-height': el.minHeight },
               on: {
