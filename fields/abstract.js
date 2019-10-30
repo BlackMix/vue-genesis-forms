@@ -5,6 +5,9 @@ export default {
     value: {
       default: undefined
     },
+    data: {
+      default: ''
+    },
     label: {
       type: String,
       default: ''
