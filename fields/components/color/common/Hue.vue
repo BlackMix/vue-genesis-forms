@@ -29,12 +29,15 @@ export default {
     }
   },
   computed: {
-    colors () {
+    colors: () => {
       const h = this.value.hsl.h
-      if (h !== 0 && h - this.oldHue > 0) this.pullDirection = 'right'
-      if (h !== 0 && h - this.oldHue < 0) this.pullDirection = 'left'
+      if (h !== 0 && h - this.oldHue > 0) {
+        this.pullDirection = 'right'
+      }
+      if (h !== 0 && h - this.oldHue < 0) {
+        this.pullDirection = 'left'
+      }
       this.oldHue = h
-
       return this.value
     },
     directionClass () {
