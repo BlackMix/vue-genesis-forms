@@ -31,6 +31,7 @@ export default {
                 maxlength: Number,
                 disabled: Boolean
               },
+              domProps: { value: el.data },
               attrs: {
                 maxlength: el.max,
                 type: el.type
