@@ -1,7 +1,8 @@
 import Vue from 'vue'
-import { Datepicker } from 'buefy'
+import Buefy from 'buefy'
 
-Vue.component(Datepicker.name, Datepicker)
+// F // later I fix it, no time to fix it now, so add full Buefy
+Vue.use(Buefy)
 
 import fields from './configure/field'
 import * as FieldsComponents from './fields'
